@@ -188,19 +188,28 @@ export default function Home() {
                 </Button>
               </div>
               <div className="flex gap-4 mt-8">
-                <Button variant="ghost" size="icon" className="rounded-full">
-                  <Github className="h-5 w-5" />
-                </Button>
-                <Button variant="ghost" size="icon" className="rounded-full">
-                  <Linkedin className="h-5 w-5" />
-                </Button>
-                <Button variant="ghost" size="icon" className="rounded-full">
-                  <Twitter className="h-5 w-5" />
-                </Button>
-                <Button variant="ghost" size="icon" className="rounded-full">
-                  <Mail className="h-5 w-5" />
-                </Button>
-              </div>
+  <a href="https://github.com/mwangea" target="_blank" rel="noopener noreferrer">
+    <Button variant="ghost" size="icon" className="rounded-full">
+      <Github className="h-5 w-5" />
+    </Button>
+  </a>
+  <a href="https://www.linkedin.com/in/musa-mwangea-00b6b726b" target="_blank" rel="noopener noreferrer">
+    <Button variant="ghost" size="icon" className="rounded-full">
+      <Linkedin className="h-5 w-5" />
+    </Button>
+  </a>
+  <a href="https://twitter.com/_mwangea" target="_blank" rel="noopener noreferrer">
+    <Button variant="ghost" size="icon" className="rounded-full">
+      <Twitter className="h-5 w-5" />
+    </Button>
+  </a>
+  <a href="mailto:mwangeamusa@gmail.com">
+    <Button variant="ghost" size="icon" className="rounded-full">
+      <Mail className="h-5 w-5" />
+    </Button>
+  </a>
+</div>
+
             </div>
             <div className="relative max-w-md mx-auto lg:max-w-none order-1 lg:order-2">
               <div className="aspect-square w-64 md:w-80 mx-auto">
