@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @next/next/no-img-element */
 
 "use client";
 
@@ -20,6 +22,8 @@ import { SkillCard } from "@/components/skill-card";
 import { ProjectCard } from "@/components/project-card";
 import { Quote } from 'lucide-react';
 import FloatingFact from "@/components/floating-fact";
+import ContactForm from "@/components/ContactForm";
+import Image from "next/image";
 
 const testimonials = [
   {
@@ -153,7 +157,9 @@ export default function Home() {
       {/* Navigation */}
       <nav className="fixed w-full top-0 z-50 bg-background/80 backdrop-blur-sm border-b">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="text-xl font-bold">MM.</div>
+        <div className="text-xl font-bold">
+  <Image src="/favicon.ico" alt="Logo" width={40} height={40} />
+</div>
           <div className="flex items-center gap-4">
             <ThemeToggle />
           </div>
@@ -402,45 +408,16 @@ export default function Home() {
 
       {/* Contact Section */}
       <section id="contact" className="py-16 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <SectionHeader
-            title="Get in Touch"
-            subtitle="Have a project in mind? Let's work together!"
-          />
-          <div className="max-w-xl mx-auto">
-            <form className="space-y-6">
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm font-medium">
-                    Name
-                  </label>
-                  <Input id="name" placeholder="Your name" />
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium">
-                    Email
-                  </label>
-                  <Input id="email" type="email" placeholder="Your email" />
-                </div>
-              </div>
-              <div className="space-y-2">
-                <label htmlFor="message" className="text-sm font-medium">
-                  Message
-                </label>
-                <Textarea
-                  id="message"
-                  placeholder="Your message"
-                  className="min-h-[150px]"
-                />
-              </div>
-              <Button className="w-full" size="lg">
-                <Send className="mr-2 h-4 w-4" />
-                Send Message
-              </Button>
-            </form>
-          </div>
-        </div>
-      </section>
+  <div className="container mx-auto max-w-6xl">
+    <SectionHeader
+      title="Get in Touch"
+      subtitle="Have a project in mind? Let's work together!"
+    />
+    <div className="max-w-xl mx-auto">
+      <ContactForm />
+    </div>
+  </div>
+</section>
 
       {/* Footer */}
       <footer className="py-8 px-4 border-t">
