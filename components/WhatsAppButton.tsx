@@ -42,6 +42,7 @@ const WhatsAppButton = () => {
               </div>
             </div>
             <button 
+            title='Close'
               onClick={() => setIsOpen(false)}
               className="text-white hover:text-green-100"
             >
@@ -72,6 +73,7 @@ const WhatsAppButton = () => {
                 className="flex-1 p-2 border dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#25D366] dark:bg-gray-700 dark:text-white"
               />
               <button
+              title='Send'
                 type="submit"
                 className="bg-[#25D366] text-white p-2 rounded-lg hover:bg-[#128C7E] transition-colors"
               >
