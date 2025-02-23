@@ -2,7 +2,7 @@
 
 import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export function SkillCard({
   name,
@@ -15,11 +15,11 @@ export function SkillCard({
 }) {
   const [progress, setProgress] = useState(0);
 
-  useState(() => {
+  useEffect(() => {
     setTimeout(() => {
       setProgress(level);
     }, 300);
-  });
+  }, [level]);
 
   return (
     <Card className="p-6 hover:shadow-lg transition-shadow">
