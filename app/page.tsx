@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -18,25 +20,26 @@ import { SectionHeader } from "@/components/section-header";
 import { SkillCard } from "@/components/skill-card";
 import { ProjectCard } from "@/components/project-card";
 import { Quote } from 'lucide-react';
+import FloatingFact from "@/components/floating-fact";
 
 const testimonials = [
   {
-    content: "Musa's technical expertise and leadership skills were instrumental in delivering our healthcare platform. His ability to understand complex requirements and translate them into elegant solutions is remarkable.",
-    author: "Sarah Johnson",
-    position: "CTO, HealthTech Solutions",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=faces"
+    "content": "Musa's dedication to creating impactful solutions was evident in our work at World Vision. His ability to build scalable systems while keeping sustainability and real-world impact in mind made a significant difference in our projects.",
+    "author": "Nuru Mbeyu",
+    "position": "Project Manager, World Vision",
+    "image": "nuru.jpg"
   },
   {
-    content: "Working with Musa was a game-changer for our startup. His full-stack expertise and attention to detail helped us launch our MVP ahead of schedule.",
-    author: "Michael Chen",
-    position: "Founder, TechStart Inc",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=faces"
+    "content": "Musa played a crucial role in developing our e-commerce platform. His expertise in frontend and backend technologies ensured a seamless shopping experience for our customers, helping us scale efficiently.",
+    "author": "Bonny Longa",
+    "position": "CEO, ShopEase",
+    "image": "Bonny.jpg"
   },
   {
-    content: "Musa's deep understanding of both frontend and backend technologies made him an invaluable asset to our team. His solutions are always scalable and well-architected.",
-    author: "Emily Rodriguez",
-    position: "Lead Developer, InnovateCorp",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=faces"
+    "content": "What sets Musa apart is his problem-solving mindset and ability to collaborate effectively with teams. Whether tackling complex bugs or optimizing performance, he consistently brings innovative solutions to the table.",
+    "author": "Daniel Carter",
+    "position": "Engineering Lead, DevSolutions",
+    "image": "https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=200&h=200&fit=crop&crop=faces"
   }
 ];
 
@@ -95,7 +98,7 @@ export default function Home() {
   const [mounted, setMounted] = useState(false);
   const [text, setText] = useState("");
   const fullText = "Hi, I'm Musa Mwangea";
-  const roles = ["Software Engineer", "Web Developer", "Mobile Developer", "Innovator"];
+  const roles = ["Software Engineer", "Web Developer", "Innovator"];
   const [roleIndex, setRoleIndex] = useState(0);
   const [roleText, setRoleText] = useState("");
   const [visibleProjects, setVisibleProjects] = useState(3);
@@ -151,7 +154,7 @@ export default function Home() {
       {/* Navigation */}
       <nav className="fixed w-full top-0 z-50 bg-background/80 backdrop-blur-sm border-b">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="text-xl font-bold">MM</div>
+          <div className="text-xl font-bold">MM.</div>
           <div className="flex items-center gap-4">
             <ThemeToggle />
           </div>
@@ -202,7 +205,7 @@ export default function Home() {
             <div className="relative max-w-md mx-auto lg:max-w-none order-1 lg:order-2">
               <div className="aspect-square w-64 md:w-80 mx-auto">
                 <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop"
+                  src="musaa.jpg"
                   alt="Musa Mwangea"
                   className="rounded-full object-cover w-full h-full border-8 border-card shadow-2xl"
                 />
@@ -223,7 +226,7 @@ export default function Home() {
             <div>
               <h3 className="text-2xl font-semibold mb-4">My Journey</h3>
               <p className="text-muted-foreground mb-4">
-                With over 5 years of experience in software development, I've led teams 
+                With over 3 years of experience in software development, I&apos;ve led teams 
                 in developing complex healthcare management systems, e-commerce platforms, 
                 and mobile applications.
               </p>
@@ -235,7 +238,7 @@ export default function Home() {
               <div className="grid grid-cols-2 gap-4 mt-8">
                 <div className="flex items-center gap-2">
                   <Calendar className="h-5 w-5 text-primary" />
-                  <span>5+ Years Experience</span>
+                  <span>3+ Years Experience</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <MapPin className="h-5 w-5 text-primary" />
@@ -244,21 +247,26 @@ export default function Home() {
               </div>
             </div>
             <div>
-              <h3 className="text-2xl font-semibold mb-4">Fun Facts</h3>
+              <h3 className="text-2xl font-semibold mb-4">Currently Open To 🔎</h3>
               <ul className="space-y-4">
                 <li className="flex items-start gap-2">
-                  <span className="text-2xl">🏋️‍♂️</span>
-                  <span>Practice calisthenics for mental and physical balance</span>
+                  
+                  <span>✅ Full-time roles in Web & Mobile Development</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-2xl">📚</span>
-                  <span>Passionate about philosophy and continuous learning</span>
+                  
+                  <span>✅ Freelance & contract work—Let’s build something awesome together</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-2xl">💡</span>
-                  <span>Love solving complex technical challenges</span>
+                
+                  <span>✅ Collaborations on AI-powered or innovative tech projects</span>
+                </li>
+                <li className="flex items-start gap-2">
+                
+                  <span>✅ Startups & businesses looking for a skilled developer with a vision</span>
                 </li>
               </ul>
+              <h2 className="text-1xl text-muted-foreground italic mt-8">If it’s exciting, challenging, or just plain genius, let’s talk</h2>
             </div>
           </div>
         </div>
@@ -306,6 +314,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Create a Floating Fact component */}
+      <FloatingFact />
+
       {/* Projects Section */}
       <section id="projects" className="py-16 px-4 bg-muted/50">
         <div className="container mx-auto max-w-6xl">
@@ -338,6 +349,8 @@ export default function Home() {
           )}
         </div>
       </section>
+
+      {/* Testimonial Section */}
       <section id="testimonials" className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
@@ -345,7 +358,7 @@ export default function Home() {
             What People Say
           </h2>
           <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
-            Feedback from clients and colleagues I've worked with
+            Feedback from clients and colleagues I&apos;ve worked with
           </p>
         </div>
         <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -356,7 +369,7 @@ export default function Home() {
             >
               <Quote className="absolute top-4 right-4 h-8 w-8 text-blue-100 dark:text-gray-700" />
               <p className="text-gray-600 dark:text-gray-300 mb-6 relative z-10">
-                "{testimonial.content}"
+                &ldquo;{testimonial.content}&rdquo;
               </p>
               <div className="flex items-center">
                 <img
