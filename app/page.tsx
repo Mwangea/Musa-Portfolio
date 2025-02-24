@@ -42,11 +42,11 @@ const testimonials = [
   },
   {
     content:
-      "What sets Musa apart is his problem-solving mindset and ability to collaborate effectively with teams. Whether tackling complex bugs or optimizing performance, he consistently brings innovative solutions to the table.",
-    author: "Daniel Carter",
-    position: "Engineering Lead, DevSolutions",
+      "Musa played a crucial role in bringing the King Chi Foundation's vision to life through a beautifully designed and highly functional website. His technical expertise, problem-solving mindset, and ability to collaborate effectively ensured that the platform was user-friendly, secure, and impactful. From implementing donation features to optimizing performance, his dedication to excellence made all the difference.",
+    author: "Juma Mwavadu",
+    position: "CEO, King Chi Foundation",
     image:
-      "https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=200&h=200&fit=crop&crop=faces",
+      "Kingchi.jpg",
   },
 ];
 
