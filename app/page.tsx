@@ -45,50 +45,56 @@ const testimonials = [
       "Musa played a crucial role in bringing the King Chi Foundation's vision to life through a beautifully designed and highly functional website. His technical expertise, problem-solving mindset, and ability to collaborate effectively ensured that the platform was user-friendly, secure, and impactful. From implementing donation features to optimizing performance, his dedication to excellence made all the difference.",
     author: "Juma Mwavadu",
     position: "CEO, King Chi Foundation",
-    image:
-      "Kingchi.jpg",
+    image: "Kingchi.jpg",
   },
 ];
 
 const allProjects = [
   {
-    title: "Healthcare Management System",
+    title: "Maritime Asset Management System",
     description:
-      "End-to-end solution for managing patient records and appointments",
-    image:
-      "https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=400&auto=format&fit=crop",
-    technologies: ["Angular", ".NET Core", "SQL Server", "Azure"],
+      "Comprehensive solution for managing maritime assets, including vessels, equipment, and maintenance schedules. Features include asset tracking, QR code integration, and user management.",
+    image: "Maritime.png",
+    technologies: [
+      "React",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "QR Code Integration",
+    ],
     githubUrl: "#",
-    liveUrl: "#",
+    liveUrl: "https://kma-asset-management.vercel.app/",
   },
   {
-    title: "E-commerce Platform",
+    title: "Expert Nursing Education Support",
     description:
-      "Full-featured online shopping platform with real-time inventory",
+      "A professional platform designed to assist nursing students with exam preparation, online tutoring, and academic excellence. Start your journey towards becoming a successful healthcare professional.",
     image:
-      "https://images.unsplash.com/photo-1540350394557-8d14678e7f91?q=80&w=400&auto=format&fit=crop",
-    technologies: ["Next.js", "Node.js", "MongoDB", "AWS"],
+      "nursing.png",
+    technologies: ["React", "TypeScript", "Vite", "Tailwind CSS"],
     githubUrl: "#",
-    liveUrl: "#",
-  },
+    liveUrl: "https://nursing-m9j6.vercel.app/",
+},
   {
-    title: "Fitness Tracking App",
-    description: "Mobile app for tracking workouts and nutrition",
+    title: "Shanzu Learning Center Website",
+    description:
+      "A fully functional school website for Shanzu Learning Center, built using WordPress. The website provides information about the school, programs, admissions, Donation, and contact details.",
     image:
-      "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?q=80&w=400&auto=format&fit=crop",
-    technologies: ["React Native", "Firebase", "Node.js"],
+      "shanzu.png",
+    technologies: ["WordPress", "Elementor", "HTML", "CSS", "JavaScript"],
     githubUrl: "#",
-    liveUrl: "#",
-  },
-  {
-    title: "Social Media Dashboard",
-    description: "Analytics dashboard for social media management",
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=400&auto=format&fit=crop",
-    technologies: ["React", "D3.js", "Node.js", "MongoDB"],
-    githubUrl: "#",
-    liveUrl: "#",
-  },
+    liveUrl: "https://theshanzulearningcentre.org/shanzu/",
+},
+{
+  title: "Tutor Christabel Website",
+  description:
+    "A professional tutoring website built with modern web technologies, featuring responsive design and interactive elements for educational services. The website showcases various tutoring services including healthcare education, technical subjects, and standardized test preparation.",
+  image:
+    "tutor.png",
+  technologies: ["React", "D3.js", "Responsive Design"],
+  githubUrl: "#",
+  liveUrl: "https://tutorchristabel.com/",
+},
   {
     title: "AI-Powered Chat App",
     description: "Real-time chat application with AI integration",

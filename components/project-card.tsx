@@ -32,7 +32,7 @@ export function ProjectCard({
 }: ProjectCardProps) {
   return (
     <Card className="overflow-hidden group">
-      <div className="relative aspect-video overflow-hidden">
+      <div className="flex justify-center items-center w-full">
         <img
           src={image}
           alt={title}
