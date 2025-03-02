@@ -3,11 +3,17 @@
 import { SectionHeader } from "@/components/section-header";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Globe,Menu,X, } from "lucide-react";
+import { ArrowRight, Globe, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import Link from "next/link";
 import Image from "next/image";
+
+// Define types for currency data
+interface CurrencyData {
+  code: string;
+  rate: number;
+}
 
 export default function RatesPage() {
   const [mounted, setMounted] = useState(false);
@@ -15,7 +21,7 @@ export default function RatesPage() {
   const [exchangeRate, setExchangeRate] = useState(1);
   const [countryCode, setCountryCode] = useState("KE");
   const [loading, setLoading] = useState(true);
-  const [availableCurrencies, setAvailableCurrencies] = useState([]);
+  const [availableCurrencies, setAvailableCurrencies] = useState<CurrencyData[]>([]);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   
   const scrollToSection = (sectionId: string) => {
@@ -46,7 +52,7 @@ export default function RatesPage() {
         
         if (currencyData.rates) {
           // Create a map of all available currencies
-          const currencies = Object.keys(currencyData.rates).map(code => ({
+          const currencies: CurrencyData[] = Object.keys(currencyData.rates).map(code => ({
             code,
             rate: currencyData.rates[code]
           }));
@@ -337,13 +343,14 @@ export default function RatesPage() {
   // Handle manual currency selection
   const handleCurrencyChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedCurrency = e.target.value;
-    const selectedCurrencyData = availableCurrencies.find((c: any) => c.code === selectedCurrency);
+    const selectedCurrencyData = availableCurrencies.find((c) => c.code === selectedCurrency);
     
     if (selectedCurrencyData) {
       setCurrency(selectedCurrencyData.code);
       setExchangeRate(selectedCurrencyData.rate);
     }
   };
+
   // Function to format price based on user's currency
   const formatPrice = (kshPrice: string | number) => {
     // Parse the price string to extract the numeric value
@@ -372,10 +379,11 @@ export default function RatesPage() {
     // Convert and format
     return formatCurrency(numericValue * exchangeRate);
   };
+
   // Helper to format currency with proper separators
   const formatCurrency = (value: number) => {
     // Common currency formats
-    const currencyFormats = {
+    const currencyFormats: Record<string, { locale: string; symbol: string }> = {
       'USD': { locale: 'en-US', symbol: '$' },
       'GBP': { locale: 'en-GB', symbol: '£' },
       'EUR': { locale: 'de-DE', symbol: '€' },
@@ -394,7 +402,7 @@ export default function RatesPage() {
       // Add more as needed
     };
     
-    const format = currencyFormats[currency as keyof typeof currencyFormats] || { locale: 'en-US', symbol: currency + ' ' };
+    const format = currencyFormats[currency] || { locale: 'en-US', symbol: currency + ' ' };
     
     // Format with appropriate thousand separators
     const numberFormat = new Intl.NumberFormat(format.locale, {
@@ -553,7 +561,7 @@ export default function RatesPage() {
                 {loading ? (
                   <option value="KSH">Loading...</option>
                 ) : (
-                  availableCurrencies.map((curr: { code: string }) => (
+                  availableCurrencies.map((curr) => (
                     <option key={curr.code} value={curr.code}>
                       {curr.code}
                     </option>
