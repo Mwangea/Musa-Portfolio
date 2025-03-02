@@ -15,6 +15,8 @@ import {
   Calendar,
   MapPin,
   Send,
+  Menu,
+  X,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { SectionHeader } from "@/components/section-header";
@@ -24,6 +26,7 @@ import { Quote } from "lucide-react";
 import FloatingFact from "@/components/floating-fact";
 import ContactForm from "@/components/ContactForm";
 import Image from "next/image";
+import Link from "next/link";
 
 const testimonials = [
   {
@@ -123,6 +126,7 @@ export default function Home() {
   const [roleIndex, setRoleIndex] = useState(0);
   const [roleText, setRoleText] = useState("");
   const [visibleProjects, setVisibleProjects] = useState(3);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -172,16 +176,73 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-background">
-      {/* Navigation */}
+      {/* Navigation - UPDATED with Menu Button */}
       <nav className="fixed w-full top-0 z-50 bg-background/80 backdrop-blur-sm border-b">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="text-xl font-bold">
-            <Image src="/favicon.ico" alt="Logo" width={40} height={40} />
+            <Link href="/">
+              <Image src="/favicon.ico" alt="Logo" width={40} height={40} />
+            </Link>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-6">
+            <div className="hidden md:flex space-x-6">
+              <Link href="/" className="hover:text-primary transition-colors">
+                Home
+              </Link>
+              <Link href="#projects" className="hover:text-primary transition-colors" onClick={(e) => {
+                e.preventDefault();
+                scrollToSection("projects");
+              }}>
+                Projects
+              </Link>
+              <Link href="/rates" className="hover:text-primary transition-colors">
+                Rates
+              </Link>
+              <Link href="#contact" className="hover:text-primary transition-colors" onClick={(e) => {
+                e.preventDefault();
+                scrollToSection("contact");
+              }}>
+                Contact
+              </Link>
+            </div>
             <ThemeToggle />
+            <Button
+              variant="ghost"
+              size="icon"
+              className="md:hidden"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </Button>
           </div>
         </div>
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden bg-background/95 backdrop-blur-sm border-t">
+            <div className="flex flex-col space-y-4 p-4">
+              <Link href="/" className="hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>
+                Home
+              </Link>
+              <Link href="#projects" className="hover:text-primary transition-colors" onClick={(e) => {
+                e.preventDefault();
+                scrollToSection("projects");
+                setIsMenuOpen(false);
+              }}>
+                Projects
+              </Link>
+              <Link href="/rates" className="hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>
+                Rates
+              </Link>
+              <Link href="#contact" className="hover:text-primary transition-colors" onClick={(e) => {
+                e.preventDefault();
+                scrollToSection("contact");
+                setIsMenuOpen(false);
+              }}>
+                Contact
+              </Link>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
