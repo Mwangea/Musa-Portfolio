@@ -16,7 +16,7 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 const WhatsAppButton = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState('');
-  const phoneNumber = '+254712345678'; // Replace with your actual WhatsApp number
+  const phoneNumber = '+254758311071'; // Replace with your actual WhatsApp number
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
