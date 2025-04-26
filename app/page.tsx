@@ -98,15 +98,15 @@ const allProjects = [
   githubUrl: "#",
   liveUrl: "https://tutorchristabel.com/",
 },
-  {
-    title: "AI-Powered Chat App",
-    description: "Real-time chat application with AI integration",
-    image:
-      "https://images.unsplash.com/photo-1587560699334-cc4ff634909a?q=80&w=400&auto=format&fit=crop",
-    technologies: ["Next.js", "OpenAI", "Socket.io", "PostgreSQL"],
-    githubUrl: "#",
-    liveUrl: "#",
-  },
+{
+  title: "Olosuashi Tours Website",
+  description: "A dynamic touring website offering customized safari and travel experiences across Kenya and Tanzania, built for a seamless and responsive user experience.",
+  image: "olosuasi.png",
+  technologies: ["React", "MySQL", "TailwindCSS"],
+  githubUrl: "#", 
+  liveUrl: "https://olosuashi.com",
+},
+
   {
     title: "Inventory Management System",
     description: "Enterprise inventory tracking solution",
