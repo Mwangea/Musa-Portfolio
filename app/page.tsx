@@ -82,6 +82,16 @@ const allProjects = [
     liveUrl: "https://nursing-m9j6.vercel.app/",
   },
   {
+    title: "Invoice Pro",
+    description:
+      "A modern SaaS invoicing platform built for freelancers, contractors, creatives, and small business owners. Users can create and send professional invoices instantly from any device. Currently includes a landing page, pricing, features, about, and authentication pages, with a dashboard coming soon.",
+    image: "INVOICE.png",
+    technologies: ["React", "TypeScript", "MySQL", "CSS", "Express"],
+    githubUrl: "#", // Replace with your actual repo link when ready
+    liveUrl: "https://invoice-saas-roan.vercel.app/"
+  },
+  
+  {
     title: "Shanzu Learning Center ",
     description:
       "A fully functional school website for Shanzu Learning Center, built using WordPress. The website provides information about the school, programs, admissions, Donation, and contact details.",
