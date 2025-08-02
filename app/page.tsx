@@ -57,13 +57,13 @@ const allProjects = [
     liveUrl: "https://kma-asset-management.vercel.app/",
   },
   {
-    title: "Expert Nursing Education Support",
+    title: "Foreign Languages and Hospitality",
     description:
-      "A professional platform designed to assist nursing students with exam preparation, online tutoring, and academic excellence. Start your journey towards becoming a successful healthcare professional.",
-    image: "nursing.png",
+      "A comprehensive platform offering foreign language courses and hospitality training programs. Features include interactive language learning modules, cultural immersion experiences, and professional hospitality certification courses designed to prepare students for international careers.",
+    image: "German.png",
     technologies: ["React", "TypeScript", "Vite", "Tailwind CSS"],
     githubUrl: "#",
-    liveUrl: "https://nursing-m9j6.vercel.app/",
+    liveUrl: "https://foreignlanguagesandhospitality.com/",
   },
   {
     title: "Invoice Pro",
