@@ -41,21 +41,25 @@ const testimonials = [
 ];
 
 const allProjects = [
-  {
-    title: "Maritime Asset Management System",
-    description:
-      "Comprehensive solution for managing maritime assets, including vessels, equipment, and maintenance schedules. Features include asset tracking, QR code integration, and user management.",
-    image: "Maritime.png",
-    technologies: [
-      "React",
-      "Node.js",
-      "Express",
-      "MongoDB",
-      "QR Code Integration",
-    ],
-    githubUrl: "#",
-    liveUrl: "https://kma-asset-management.vercel.app/",
-  },
+{
+  title: "Twende Rides - Premium Car Hire Website",
+  description:
+    "Twende Rides is a modern, responsive car hire platform built with Next.js 15, offering a premium vehicle rental experience across Kenya. It includes a sleek UI, real-time booking system, comprehensive fleet management, and smooth user experience optimized for mobile and desktop. Features include date-based availability, location-based pickup/drop-off, customer testimonials, and a beautiful parallax hero section.",
+  image: "car-hire.webp", 
+  technologies: [
+    "Next.js 15",
+    "React 19",
+    "TypeScript",
+    "Tailwind CSS",
+    "Radix UI",
+    "Shadcn/UI",
+    "MongoDB"
+  ],
+  githubUrl: "https://github.com/Mwangea/Car-hire", 
+  liveUrl: "https://car-hire-gv3x.vercel.app/",
+},
+
+  
   {
     title: "Foreign Languages and Hospitality",
     description:
@@ -74,15 +78,7 @@ const allProjects = [
     githubUrl: "#", // Replace with your actual repo link when ready
     liveUrl: "https://invoice-saas-roan.vercel.app/"
   },
-  {
-    title: "Shanzu Learning Center ",
-    description:
-      "A fully functional school website for Shanzu Learning Center, built using WordPress. The website provides information about the school, programs, admissions, Donation, and contact details.",
-    image: "shanzu.png",
-    technologies: ["WordPress", "Elementor", "HTML", "CSS", "JavaScript"],
-    githubUrl: "#",
-    liveUrl: "https://theshanzulearningcentre.org/shanzu/",
-  },
+  
   {
     title: "Olosuashi Tours Website",
     description:
@@ -91,6 +87,15 @@ const allProjects = [
     technologies: ["React", "MySQL", "TailwindCSS"],
     githubUrl: "#",
     liveUrl: "https://olosuashi.com",
+  },
+  {
+    title: "Shanzu Learning Center ",
+    description:
+      "A fully functional school website for Shanzu Learning Center, built using WordPress. The website provides information about the school, programs, admissions, Donation, and contact details.",
+    image: "shanzu.png",
+    technologies: ["WordPress", "Elementor", "HTML", "CSS", "JavaScript"],
+    githubUrl: "#",
+    liveUrl: "https://theshanzulearningcentre.org/shanzu/",
   },
   {
     title: "HotSport Gym Landing Page",
@@ -107,6 +112,21 @@ const allProjects = [
     ],
     githubUrl: "https://github.com/Mwangea/HotSportLandingPage",
     liveUrl: "https://hot-sport-landing-page.vercel.app/" 
+  },
+  {
+    title: "Maritime Asset Management System",
+    description:
+      "Comprehensive solution for managing maritime assets, including vessels, equipment, and maintenance schedules. Features include asset tracking, QR code integration, and user management.",
+    image: "Maritime.png",
+    technologies: [
+      "React",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "QR Code Integration",
+    ],
+    githubUrl: "#",
+    liveUrl: "https://kma-asset-management.vercel.app/",
   },
 ];
 
