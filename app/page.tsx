@@ -58,6 +58,22 @@ const allProjects = [
   githubUrl: "https://github.com/Mwangea/Car-hire", 
   liveUrl: "https://car-hire-gv3x.vercel.app/",
 },
+{
+  title: "Don Palace Furniture",
+  description:
+    "A modern ecommerce website for selling furniture, featuring a complete shopping experience with product catalog, shopping cart, checkout system, and payment integration. The platform offers a user-friendly interface for browsing furniture collections, viewing detailed product information, and seamless online purchasing.",
+  image: "Donpalace.png",
+  technologies: [
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Tailwind CSS",
+    "E-commerce",
+    "Payment Integration"
+  ],
+  githubUrl: "#",
+  liveUrl: "https://testingdonpalace.hotsportgym.com/",
+},
 
   
   {
