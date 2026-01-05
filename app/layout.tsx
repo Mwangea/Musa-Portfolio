@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  keywords: siteConfig.keywords,
+  keywords: [...siteConfig.keywords],
   authors: [{ name: siteConfig.creator, url: siteConfig.url }],
   creator: siteConfig.creator,
   publisher: siteConfig.creator,
@@ -81,11 +81,11 @@ export const metadata: Metadata = {
     width: "device-width",
     initialScale: 1,
     maximumScale: 5,
-    themeColor: [
-      { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-      { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
-    ],
   },
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
+  ],
 };
 
 export default function RootLayout({
