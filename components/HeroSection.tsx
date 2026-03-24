@@ -191,7 +191,9 @@ export default function HeroSection() {
               {/* Image container */}
               <div className="relative w-full h-full rounded-3xl overflow-hidden border-2 border-border shadow-2xl">
                 <Image
-                  src="/musaa.jpg"
+                 // src="/musaa.jpg"
+                // src="/new logo.jpeg"
+                src="/MUSA (2).png"
                   alt={`${siteConfig.name} - Software Engineer`}
                   fill
                   className="object-cover"
