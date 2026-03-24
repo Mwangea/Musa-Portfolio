@@ -64,6 +64,27 @@ export const projects: Project[] = [
     completedAt: "2024",
   },
   {
+    slug: "josuddi-pwd-uganda-platform",
+    title: "JOSUDDI",
+    description:
+      "JOSUDDI is a community-centered platform that supports Persons with Disabilities (PWDs) in Uganda through advocacy, entrepreneurship, savings groups, and disability support services.",
+    longDescription:
+      "JOSUDDI is a community-centered platform that supports Persons with Disabilities (PWDs) in Uganda through advocacy, entrepreneurship, savings groups, and disability support services. The platform highlights inclusive community programs, impact stories, and opportunities for partners and supporters to engage in sustainable change.",
+    image: "jossud.png",
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Accessibility",
+    ],
+    githubUrl: "#",
+    liveUrl: "https://josuddi.vercel.app/",
+    featured: true,
+    category: "website",
+    completedAt: "2026",
+  },
+  {
     slug: "twende-rides-car-hire",
     title: "Twende Rides - Premium Car Hire Website",
     description:
@@ -190,6 +211,7 @@ export const projects: Project[] = [
     category: "website",
     completedAt: "2024",
   },
+  
   {
     slug: "maritime-asset-management",
     title: "Maritime Asset Management System",
