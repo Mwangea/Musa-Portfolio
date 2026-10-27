@@ -1,9 +1,9 @@
 // Site configuration for SEO and branding
 export const siteConfig = {
   name: "Musa Mwangea",
-  title: "Musa Mwangea | Software Engineer & Full-Stack Developer",
+  title: "Musa Mwangea | Websites, apps, and business systems",
   description:
-    "Full-stack software engineer specializing in React, Next.js, TypeScript, and modern web technologies. Building scalable web and mobile applications in Kenya.",
+    "Musa Mwangea designs and builds websites, web apps, and business systems for companies in Kenya and beyond. Scopes are clear and rates are listed in Kenyan shillings.",
   url: "https://musamwangea.dev", // Update with your actual domain
   ogImage: "/og-image.jpg",
   links: {

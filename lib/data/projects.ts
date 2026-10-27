@@ -10,6 +10,13 @@ export interface Project {
   featured?: boolean;
   category: "website" | "webapp" | "mobile" | "system";
   completedAt?: string;
+  outcome?: string;
+  imageClass?: string;
+  caseStudy?: {
+    problem: string;
+    role: string;
+    shipped: string[];
+  };
 }
 
 export const projects: Project[] = [
@@ -20,7 +27,7 @@ export const projects: Project[] = [
       "Kenya's first blockchain-powered land due diligence engine that empowers land owners to digitize land records, verify ownership authenticity, and secure verified records on the blockchain.",
     longDescription:
       "Atlas is Kenya's first blockchain-powered land due diligence engine. The platform empowers bona fide land owners to digitize land records, verify ownership authenticity, and ultimately secures verified records on the blockchain. Atlas also empowers the public to conduct robust land due diligence in a convenient digital channel for better informed decision support. The system addresses weak property rights by moving away from paper-based land records that are vulnerable to manipulation and disappearance.",
-    image: "Atlas-block-chain.png",
+    image: "Atlas.png",
     technologies: [
       "Blockchain",
       "Web3",
@@ -34,7 +41,21 @@ export const projects: Project[] = [
     liveUrl: "https://www.atlas-ke.net/",
     featured: true,
     category: "system",
-    completedAt: "2024",
+    completedAt: "2025",
+    outcome:
+      "Land owners digitize records, and buyers can check them before a deal, instead of trusting paper that can be altered or lost.",
+    caseStudy: {
+      problem:
+        "Land transactions in Kenya still lean on paper. A record can be altered, misplaced, or lost, and a buyer has no straightforward way to confirm ownership before money changes hands.",
+      role:
+        "I designed and built Atlas, the web platform where an owner digitizes a land record, ownership can be checked, and a verified record is secured on the blockchain.",
+      shipped: [
+        "A flow for land owners to digitize their records",
+        "Checks on ownership authenticity before a record is treated as verified",
+        "Verified records secured on the blockchain",
+        "A public due-diligence channel so a buyer can review a record before a deal",
+      ],
+    },
   },
   {
     slug: "ping-waiter-digital-waiter-system",
@@ -62,6 +83,20 @@ export const projects: Project[] = [
     featured: true,
     category: "webapp",
     completedAt: "2024",
+    outcome:
+      "Guests scan a QR code at the table, place the order, and the kitchen tracks it from pending to served.",
+    caseStudy: {
+      problem:
+        "Table service still depends on a waiter carrying an order to the kitchen. Tickets stall, the guest cannot see status, and the floor has no shared view of what is pending, cooking, or ready.",
+      role:
+        "I built PingWaiter, the system a restaurant uses to take the order at the table, move it through the kitchen, and give owners, managers, and floor staff their own access.",
+      shipped: [
+        "QR ordering from the table, with the session kept on that table",
+        "An order path from pending, to approved, prepared, delivered, and completed",
+        "Separate access for owners, managers, and floor staff",
+        "Card payments through Stripe and PayPal, with live updates to the team",
+      ],
+    },
   },
   {
     slug: "josuddi-pwd-uganda-platform",
@@ -106,6 +141,19 @@ export const projects: Project[] = [
     featured: true,
     category: "webapp",
     completedAt: "2024",
+    outcome:
+      "A car-hire site with fleet, dates, and pickup locations, built so a customer can book from a phone.",
+    caseStudy: {
+      problem:
+        "Someone hiring a car needs to know which vehicles are free, choose dates and a pickup point, and complete the booking without a phone call.",
+      role:
+        "I designed and built the Twende Rides site: the fleet, the booking flow, and a layout that holds up on a phone as well as a desktop.",
+      shipped: [
+        "A fleet a customer can browse before choosing a vehicle",
+        "Date-based availability, with pickup and drop-off by location",
+        "A booking path built for mobile and desktop",
+      ],
+    },
   },
   {
     slug: "don-palace-furniture",
@@ -124,10 +172,10 @@ export const projects: Project[] = [
       "Payment Integration",
     ],
     githubUrl: "#",
-    liveUrl: "https://testingdonpalace.hotsportgym.com/",
+    liveUrl: "https://donpalacefurniture.com/",
     featured: true,
     category: "webapp",
-    completedAt: "2024",
+    completedAt: "2026",
   },
   {
     slug: "foreign-languages-hospitality",
@@ -160,35 +208,37 @@ export const projects: Project[] = [
     completedAt: "2024",
   },
   {
-    slug: "olosuashi-tours",
-    title: "Olosuashi Tours Website",
+    slug: "oltukai-mara-camp",
+    title: "Oltukai Mara Camp",
     description:
-      "A dynamic touring website offering customized safari and travel experiences across Kenya and Tanzania.",
+      "A luxury safari camp website for Oltukai Mara Camp in the Maasai Mara, covering the stay, the experiences, and how to book.",
     longDescription:
-      "A dynamic touring website offering customized safari and travel experiences across Kenya and Tanzania. Features include tour booking, destination showcases, and seamless user experience for planning African safaris.",
-    image: "olosuasi.png",
-    technologies: ["React", "MySQL", "TailwindCSS"],
+      "Oltukai Mara Camp is an intimate luxury safari camp in the Maasai Mara. The site introduces the camp and its tents, game drives and balloon safaris, a gallery, and a direct way to plan a stay, including reservations over WhatsApp.",
+    image: "oltukai mara.png",
+    technologies: ["Next.js", "React"],
     githubUrl: "#",
-    liveUrl: "https://olosuashi.com",
+    liveUrl: "https://oltukaimaracamp.com",
     featured: false,
     category: "website",
-    completedAt: "2023",
+    completedAt: "2026",
+    outcome:
+      "Guests can explore the camp, the tents, and the Mara experiences, then plan a stay or reach reservations on WhatsApp.",
   },
-  {
-    slug: "shanzu-learning-center",
-    title: "Shanzu Learning Center",
-    description:
-      "A fully functional school website for Shanzu Learning Center providing information about programs, admissions, and donations.",
-    longDescription:
-      "A fully functional school website for Shanzu Learning Center, built using WordPress. The website provides information about the school, programs, admissions, Donation, and contact details.",
-    image: "shanzu.png",
-    technologies: ["WordPress", "Elementor", "HTML", "CSS", "JavaScript"],
-    githubUrl: "#",
-    liveUrl: "https://theshanzulearningcentre.org/shanzu/",
-    featured: false,
-    category: "website",
-    completedAt: "2023",
-  },
+  // {
+  //   slug: "shanzu-learning-center",
+  //   title: "Shanzu Learning Center",
+  //   description:
+  //     "A fully functional school website for Shanzu Learning Center providing information about programs, admissions, and donations.",
+  //   longDescription:
+  //     "A fully functional school website for Shanzu Learning Center, built using WordPress. The website provides information about the school, programs, admissions, Donation, and contact details.",
+  //   image: "shanzu.png",
+  //   technologies: ["WordPress", "Elementor", "HTML", "CSS", "JavaScript"],
+  //   githubUrl: "#",
+  //   liveUrl: "https://theshanzulearningcentre.org/shanzu/",
+  //   featured: false,
+  //   category: "website",
+  //   completedAt: "2023",
+  // },
   {
     slug: "hotsport-gym-landing",
     title: "HotSport Gym Landing Page",
@@ -209,7 +259,7 @@ export const projects: Project[] = [
     liveUrl: "https://hot-sport-landing-page.vercel.app/",
     featured: false,
     category: "website",
-    completedAt: "2024",
+    completedAt: "2025",
   },
   
   {
@@ -220,6 +270,7 @@ export const projects: Project[] = [
     longDescription:
       "Comprehensive solution for managing maritime assets, including vessels, equipment, and maintenance schedules. Features include asset tracking, QR code integration, and user management for efficient maritime operations.",
     image: "Maritime.png",
+    imageClass: "object-top",
     technologies: [
       "React",
       "Node.js",
@@ -232,8 +283,42 @@ export const projects: Project[] = [
     featured: true,
     category: "system",
     completedAt: "2024",
+    outcome:
+      "Vessels, equipment, and maintenance schedules live in one system, with a QR code on each asset.",
+    caseStudy: {
+      problem:
+        "Vessels, equipment, and the maintenance due on them were not in one place the operations team could trust. Finding an asset, or knowing what work it needed, meant chasing separate records.",
+      role:
+        "I built the asset management system for Kenya Maritime Authority: a register of vessels and equipment, a QR code on each asset, and a schedule for the maintenance due on it.",
+      shipped: [
+        "A register of vessels and equipment",
+        "QR codes so an asset can be identified in the field",
+        "Maintenance schedules tied to those assets",
+        "User accounts for the people running operations",
+      ],
+    },
   },
 ];
+
+export const categoryLabels: Record<Project["category"], string> = {
+  website: "Website",
+  webapp: "Web app",
+  mobile: "Mobile app",
+  system: "System",
+};
+
+export const selectedProjectSlugs = [
+  "atlas-blockchain-land-due-diligence",
+  "ping-waiter-digital-waiter-system",
+  "twende-rides-car-hire",
+  "oltukai-mara-camp",
+] as const;
+
+export function getSelectedProjects(): Project[] {
+  return selectedProjectSlugs
+    .map((slug) => projects.find((project) => project.slug === slug))
+    .filter((project): project is Project => Boolean(project));
+}
 
 export function getProjectBySlug(slug: string): Project | undefined {
   return projects.find((project) => project.slug === slug);

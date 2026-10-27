@@ -1,11 +1,8 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Check, ChevronDown, Globe, Menu, X } from "lucide-react";
+import { ArrowRight, Check, ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
-import { ThemeToggle } from "@/components/theme-toggle";
 import Link from "next/link";
-import Image from "next/image";
 import type { ServiceCategory } from "@/lib/data/services";
 
 interface CurrencyData {
@@ -18,22 +15,17 @@ interface RatesClientProps {
 }
 
 export default function RatesClient({ services }: RatesClientProps) {
-  const [mounted, setMounted] = useState(false);
   const [currency, setCurrency] = useState("KES");
   const [exchangeRate, setExchangeRate] = useState(1);
-  const [countryCode, setCountryCode] = useState("KE");
   const [loading, setLoading] = useState(true);
   const [availableCurrencies, setAvailableCurrencies] = useState<CurrencyData[]>([]);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
     const setupCurrencies = async () => {
       try {
         setLoading(true);
         const locationResponse = await fetch("https://ipapi.co/json/");
         const locationData = await locationResponse.json();
-        setCountryCode(locationData.country_code || "KE");
 
         const currencyResponse = await fetch("https://open.er-api.com/v6/latest/KES");
         const currencyData = await currencyResponse.json();
@@ -139,294 +131,117 @@ export default function RatesClient({ services }: RatesClientProps) {
     return `${format.symbol}${numberFormat.format(value)}`;
   };
 
-  if (!mounted) return null;
+  const currencyOptions =
+    availableCurrencies.length > 0
+      ? availableCurrencies
+      : [{ code: "KES", rate: 1 }];
 
   return (
-    <main className="min-h-screen bg-background">
-      {/* Navigation */}
-      <nav
-        className="fixed w-full top-0 z-50 bg-background/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800"
-        role="navigation"
-        aria-label="Main navigation"
-      >
-        <div className="container mx-auto px-6 h-20 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <Image
-              src="/favicon.ico"
-              alt="Musa Mwangea Logo"
-              width={36}
-              height={36}
-              className="rounded-lg"
-            />
-            <span className="text-lg font-semibold hidden sm:inline-block">
-              Musa Mwangea
-            </span>
-          </Link>
-
-          <div className="flex items-center gap-6">
-            <div className="hidden md:flex space-x-8">
-              <Link
-                href="/"
-                className="text-sm font-medium hover:text-primary transition-colors"
-              >
-                Home
-              </Link>
-              <Link
-                href="/projects"
-                className="text-sm font-medium hover:text-primary transition-colors"
-              >
-                Projects
-              </Link>
-              <Link
-                href="/rates"
-                className="text-sm font-medium text-primary relative"
-                aria-current="page"
-              >
-                <span>Rates</span>
-                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary" />
-              </Link>
-              <Link
-                href="/#contact"
-                className="text-sm font-medium hover:text-primary transition-colors"
-              >
-                Contact
-              </Link>
-            </div>
-
-            <div className="flex items-center gap-4">
-              <ThemeToggle />
-              <Button
-                variant="ghost"
-                size="icon"
-                className="md:hidden"
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                aria-expanded={isMenuOpen}
-                aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-              >
-                {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-              </Button>
-            </div>
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden bg-background/95 backdrop-blur-lg border-t border-gray-200 dark:border-gray-800">
-            <div className="flex flex-col space-y-3 p-4">
-              <Link
-                href="/"
-                className="px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Home
-              </Link>
-              <Link
-                href="/projects"
-                className="px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Projects
-              </Link>
-              <Link
-                href="/rates"
-                className="px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-800"
-                onClick={() => setIsMenuOpen(false)}
-                aria-current="page"
-              >
-                Rates
-              </Link>
-              <Link
-                href="/#contact"
-                className="px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Contact
-              </Link>
-            </div>
-          </div>
-        )}
-      </nav>
-
-      {/* Header */}
-      <section className="pt-32 pb-16 px-6">
-        <div className="container mx-auto max-w-6xl text-center">
-          <div className="max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Service <span className="text-primary">Pricing</span>
-            </h1>
-            <p className="text-xl text-muted-foreground mb-8">
-              Transparent pricing for high-quality digital solutions tailored to
-              your needs
+    <main className="min-h-screen bg-background px-6 pb-20 pt-28">
+      <div className="mx-auto max-w-6xl">
+        <header className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+          <div className="max-w-2xl">
+            <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
+              Rates
             </p>
-
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">
-              <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-lg border border-border">
-                <Globe className="h-5 w-5 text-primary" aria-hidden="true" />
-                <span className="text-sm">Location: {countryCode}</span>
-              </div>
-
-              <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-lg border border-border">
-                <label htmlFor="currency-select" className="text-sm">
-                  Currency:
-                </label>
-                <select
-                  id="currency-select"
-                  className="text-sm bg-transparent border-none focus:ring-0 focus:outline-none cursor-pointer"
-                  value={currency}
-                  onChange={handleCurrencyChange}
-                  disabled={loading}
-                  aria-label="Select currency"
-                >
-                  {availableCurrencies.map((curr) => (
-                    <option key={curr.code} value={curr.code}>
-                      {curr.code}
-                    </option>
-                  ))}
-                </select>
-                <ChevronDown className="h-4 w-4" aria-hidden="true" />
-              </div>
-            </div>
+            <h1 className="mt-3 text-5xl md:text-6xl">Clear prices, in shillings.</h1>
+            <p className="mt-4 text-lg text-muted-foreground">
+              These ranges cover most projects. A written quote follows once the scope is clear.
+              Converted amounts are approximate.
+            </p>
           </div>
-        </div>
-      </section>
 
-      {/* Services */}
-      <section className="pb-20 px-6" aria-labelledby="services-heading">
-        <h2 id="services-heading" className="sr-only">
-          Available Services
-        </h2>
-        <div className="container mx-auto max-w-6xl">
-          <div className="space-y-16">
-            {services.map((serviceCategory, index) => (
-              <div key={index} id={serviceCategory.slug} className="space-y-8 scroll-mt-24">
-                <div className="text-center">
-                  <span className="inline-block px-6 py-2 rounded-full bg-primary/10 text-primary font-medium">
-                    {serviceCategory.category}
-                  </span>
-                  {serviceCategory.description && (
-                    <p className="mt-2 text-muted-foreground max-w-xl mx-auto">
-                      {serviceCategory.description}
-                    </p>
-                  )}
-                </div>
+          <div className="flex items-center gap-3 border border-border px-4 py-3">
+            <label htmlFor="currency-select" className="text-sm text-muted-foreground">
+              Currency
+            </label>
+            <select
+              id="currency-select"
+              className="bg-transparent text-sm focus:outline-none"
+              value={currency}
+              onChange={handleCurrencyChange}
+              disabled={loading && availableCurrencies.length === 0}
+              aria-label="Select currency"
+            >
+              {currencyOptions.map((curr) => (
+                <option key={curr.code} value={curr.code}>
+                  {curr.code}
+                </option>
+              ))}
+            </select>
+            <ChevronDown className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
+          </div>
+        </header>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {serviceCategory.options.map((service, serviceIndex) => (
-                    <article
-                      key={serviceIndex}
-                      className={`relative border rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-lg ${
-                        service.popular
-                          ? "border-2 border-primary"
-                          : "border-border"
-                      }`}
-                    >
+        <div className="mt-16 space-y-16">
+          {services.map((serviceCategory) => (
+            <section key={serviceCategory.slug} id={serviceCategory.slug} className="scroll-mt-24">
+              <div className="max-w-xl">
+                <h2 className="text-3xl capitalize">{serviceCategory.category.toLowerCase()}</h2>
+                {serviceCategory.description && (
+                  <p className="mt-2 text-muted-foreground">{serviceCategory.description}</p>
+                )}
+              </div>
+
+              <div className="mt-8 grid gap-6 md:grid-cols-2">
+                {serviceCategory.options.map((service) => (
+                  <article key={service.name} className="flex flex-col border border-border p-6 md:p-8">
+                    <div>
+                      <h3 className="text-2xl">{service.name}</h3>
                       {service.popular && (
-                        <div className="absolute top-0 right-0 bg-primary text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
-                          POPULAR
-                        </div>
+                        <p className="mt-2 text-xs font-medium uppercase tracking-[0.14em] text-primary">
+                          Often chosen
+                        </p>
                       )}
-
-                      <div className="p-8">
-                        <div className="mb-6">
-                          <h3 className="text-2xl font-bold mb-2">
-                            {service.name}
-                          </h3>
-                          <p className="text-muted-foreground">
-                            {service.description}
-                          </p>
-                        </div>
-
-                        <div className="mb-8">
-                          <p className="text-3xl font-bold mb-1">
-                            {formatPrice(service.price)}
-                          </p>
-                          {service.note && (
-                            <p className="text-sm text-muted-foreground italic">
-                              * {service.note}
-                            </p>
-                          )}
-                        </div>
-
-                        <ul className="space-y-3 mb-8" aria-label="Features">
-                          {service.features.map((feature, featureIndex) => (
-                            <li key={featureIndex} className="flex items-start gap-3">
-                              <Check
-                                className="h-5 w-5 text-primary mt-0.5 flex-shrink-0"
-                                aria-hidden="true"
-                              />
-                              <span>{feature}</span>
-                            </li>
-                          ))}
-                        </ul>
-
-                        <Button asChild className="w-full group" size="lg">
-                          <Link href="/#contact">
-                            Get Started
-                            <ArrowRight
-                              className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1"
-                              aria-hidden="true"
-                            />
-                          </Link>
-                        </Button>
-                      </div>
-                    </article>
-                  ))}
-                </div>
+                    </div>
+                    <p className="mt-3 text-sm text-muted-foreground">{service.description}</p>
+                    <p className="mt-6 text-3xl">{formatPrice(service.price)}</p>
+                    {service.note && (
+                      <p className="mt-1 text-sm text-muted-foreground">{service.note}</p>
+                    )}
+                    <ul className="mt-6 space-y-3">
+                      {service.features.map((feature) => (
+                        <li key={feature} className="flex items-start gap-3 text-sm">
+                          <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <Link
+                      href="/#contact"
+                      className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground hover:bg-primary/90"
+                    >
+                      Start with this
+                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    </Link>
+                  </article>
+                ))}
               </div>
-            ))}
-          </div>
-
-          {/* CTA */}
-          <div className="mt-20 text-center">
-            <div className="bg-gradient-to-r from-primary/5 to-primary/10 p-8 rounded-2xl border border-primary/20">
-              <h3 className="text-2xl font-bold mb-4">
-                Need something custom?
-              </h3>
-              <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-                All projects are tailored to your specific requirements. Contact
-                me for a personalized quote.
-              </p>
-              <div className="flex flex-wrap gap-4 justify-center">
-                <Button asChild size="lg" className="px-8">
-                  <Link href="/#contact">Request Custom Quote</Link>
-                </Button>
-                <Button asChild size="lg" variant="outline">
-                  <Link href="/projects">View My Work</Link>
-                </Button>
-              </div>
-            </div>
-          </div>
+            </section>
+          ))}
         </div>
-      </section>
 
-      {/* Footer */}
-      <footer className="py-12 px-6 border-t">
-        <div className="container mx-auto max-w-6xl">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <Link href="/" className="flex items-center gap-2 mb-4 md:mb-0">
-              <Image
-                src="/favicon.ico"
-                alt="Musa Mwangea Logo"
-                width={32}
-                height={32}
-                className="rounded-lg"
-              />
-              <span className="font-medium">Musa Mwangea</span>
+        <section className="mt-20 border-t border-border pt-12">
+          <h2 className="text-3xl md:text-4xl">Need a custom scope?</h2>
+          <p className="mt-3 max-w-xl text-muted-foreground">
+            If the work does not fit a package, send the brief. The quote is based on what actually has to be built.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link
+              href="/#contact"
+              className="inline-flex rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground hover:bg-primary/90"
+            >
+              Request a quote
             </Link>
-
-            <div className="flex items-center gap-6 text-sm text-muted-foreground">
-              <Link href="/projects" className="hover:text-primary transition-colors">
-                Projects
-              </Link>
-              <Link href="/#contact" className="hover:text-primary transition-colors">
-                Contact
-              </Link>
-              <span>© {new Date().getFullYear()} All rights reserved</span>
-            </div>
+            <Link
+              href="/projects"
+              className="inline-flex rounded-full border border-border px-5 py-3 text-sm font-medium hover:bg-accent"
+            >
+              See the work
+            </Link>
           </div>
-        </div>
-      </footer>
+        </section>
+      </div>
     </main>
   );
 }
-

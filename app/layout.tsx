@@ -1,6 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Fraunces, Outfit } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -9,10 +9,16 @@ import { JsonLd } from "@/components/JsonLd";
 import { siteConfig } from "@/lib/site-config";
 import { generatePersonSchema, generateWebsiteSchema } from "@/lib/seo";
 
-const inter = Inter({
+const outfit = Outfit({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-inter",
+  variable: "--font-sans",
+});
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-display",
 });
 
 export const metadata: Metadata = {
@@ -83,8 +89,8 @@ export const metadata: Metadata = {
     maximumScale: 5,
   },
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
+    { media: "(prefers-color-scheme: light)", color: "#f6f1e7" },
+    { media: "(prefers-color-scheme: dark)", color: "#141210" },
   ],
 };
 
@@ -94,7 +100,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className={inter.variable}>
+    <html lang="en" suppressHydrationWarning className={`${outfit.variable} ${fraunces.variable}`}>
       <head>
         <link rel="icon" type="image/svg+xml" href="/mm-logo.svg" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -105,10 +111,10 @@ export default function RootLayout({
         />
         <JsonLd data={[generatePersonSchema(), generateWebsiteSchema()]} />
       </head>
-      <body className={`${inter.className} antialiased`}>
+      <body className={`${outfit.className} antialiased`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="light"
           enableSystem
           disableTransitionOnChange
         >

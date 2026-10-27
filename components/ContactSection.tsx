@@ -1,47 +1,40 @@
-import { SectionHeader } from "@/components/section-header";
 import ContactForm from "@/components/ContactForm";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { siteConfig } from "@/lib/site-config";
+
+const whatsappHref = `https://wa.me/${siteConfig.phone.replace(/\D/g, "")}`;
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="py-20 px-6">
-      <div className="container mx-auto max-w-4xl">
-        <div className="bg-card rounded-2xl p-8 md:p-12 shadow-sm border border-border">
-          <SectionHeader
-            title="Get In Touch"
-            subtitle="Let's discuss your project"
-          />
-          <div className="mt-8">
-            <ContactForm />
-          </div>
-          <div className="mt-12 pt-8 border-t border-border">
-            <div className="flex flex-col sm:flex-row justify-center gap-8">
-              <div className="flex items-center gap-3">
-                <Mail className="h-5 w-5 text-primary" />
-                <a
-                  href="mailto:mwangeamusa@gmail.com"
-                  className="hover:text-primary transition-colors"
-                >
-                  mwangeamusa@gmail.com
-                </a>
-              </div>
-              <div className="flex items-center gap-3">
-                <MapPin className="h-5 w-5 text-primary" />
-                <span>Nairobi, Kenya</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <Phone className="h-5 w-5 text-primary" />
-                <a
-                  href="tel:0758311071"
-                  className="hover:text-primary transition-colors"
-                >
-                  0758311071
-                </a>
-              </div>
-            </div>
-          </div>
+    <section id="contact" className="scroll-mt-24 border-t border-border px-6 py-20 md:py-28">
+      <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-12">
+        <div className="md:col-span-5">
+          <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
+            Start a project
+          </p>
+          <h2 className="mt-3 text-4xl md:text-5xl">Tell me what you need built.</h2>
+          <p className="mt-4 text-muted-foreground">
+            Send a short brief. I reply with what I would build, how long it takes, and a price range.
+          </p>
+          <ul className="mt-8 space-y-3 text-sm">
+            <li>
+              <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="font-medium hover:text-primary">
+                WhatsApp {siteConfig.phone}
+              </a>
+            </li>
+            <li>
+              <a href={`mailto:${siteConfig.links.email}`} className="hover:text-primary">
+                {siteConfig.links.email}
+              </a>
+            </li>
+            <li className="text-muted-foreground">
+              {siteConfig.location.city}, {siteConfig.location.country}
+            </li>
+          </ul>
+        </div>
+        <div className="md:col-span-6 md:col-start-7">
+          <ContactForm />
         </div>
       </div>
     </section>
   );
-} 
+}
