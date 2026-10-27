@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import { generatePageMetadata, generateServiceSchema, generateBreadcrumbSchema } from "@/lib/seo";
 import { services } from "@/lib/data/services";
 import { JsonLd } from "@/components/JsonLd";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import RatesClient from "./RatesClient";
 
 export const metadata: Metadata = generatePageMetadata({
@@ -39,7 +41,9 @@ export default function RatesPage() {
           { name: "Rates", url: "/rates" },
         ])}
       />
+      <Navbar />
       <RatesClient services={services} />
+      <Footer />
     </>
   );
 }

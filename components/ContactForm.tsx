@@ -141,7 +141,7 @@ export default function ContactForm() {
           <Input
             id="email"
             type="email"
-            placeholder="Your email"
+            placeholder="Work email"
             value={formData.email}
             onChange={handleChange}
             className={errors.email ? "border-red-500" : ""}
@@ -157,7 +157,7 @@ export default function ContactForm() {
         </label>
         <Textarea
           id="message"
-          placeholder="Your message"
+          placeholder="What do you need built, and by when?"
           className={`min-h-[150px] ${errors.message ? "border-red-500" : ""}`}
           value={formData.message}
           onChange={handleChange}
@@ -180,7 +180,7 @@ export default function ContactForm() {
         ) : (
           <>
             <Send className="mr-2 h-4 w-4" />
-            Send Message
+            Send the brief
           </>
         )}
       </Button>

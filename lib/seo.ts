@@ -29,7 +29,9 @@ export function generatePageMetadata({
   const allKeywords = [...siteConfig.keywords, ...keywords];
 
   return {
-    title: pageTitle,
+    title: {
+      absolute: pageTitle,
+    },
     description: pageDescription,
     keywords: allKeywords,
     authors: [{ name: siteConfig.creator, url: siteConfig.url }],
